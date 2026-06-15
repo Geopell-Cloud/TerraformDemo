@@ -1,0 +1,41 @@
+name: "Terraform Demo"
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_apply:
+        description: 'Run terraform apply'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  terraform:
+    name: "Terraform Run"
+    runs-on: ubuntu-latest
+
+    env:
+      TF_VAR_AZURE_CLIENT_ID: ${{ secrets.TF_VAR_AZURE_CLIENT_ID }}
+      TF_VAR_AZURE_CLIENT_SECRET: ${{ secrets.TF_VAR_AZURE_CLIENT_SECRET }}
+      TF_VAR_AZURE_TENANT_ID: ${{ secrets.TF_VAR_AZURE_TENANT_ID }}
+      TF_VAR_AZURE_SUBSCRIPTION_ID: ${{ secrets.TF_VAR_AZURE_SUBSCRIPTION_ID }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "1.15.6"
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Terraform Plan
+        run: terraform plan
+
+      - name: Terraform Apply
+        if: ${{ inputs.run_apply == true }}
+        run: terraform apply -auto-approve
