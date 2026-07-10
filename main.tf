@@ -20,23 +20,11 @@ terraform {
 provider "azurerm" {
   features {}
   resource_provider_registrations = "none"
-}
 
-variable "azure_client_id" {
-  type = string
-}
-
-variable "azure_client_secret" {
-  type      = string
-  sensitive = true
-}
-
-variable "azure_tenant_id" {
-  type = string
-}
-
-variable "azure_subscription_id" {
-  type = string
+  client_id       = var.azure_client_id
+  client_secret   = var.azure_client_secret
+  tenant_id       = var.azure_tenant_id
+  subscription_id = var.azure_subscription_id
 }
 
 resource "azurerm_resource_group" "devrg" {
