@@ -2,13 +2,13 @@ terraform {
   required_version = "1.15.6"
 
   # Direct state and execution tracking to HCP Terraform
-  # cloud {
-  #   organization = "GC-Terraform"
+  cloud {
+    organization = "GC-Terraform"
 
-  #   workspaces {
-  #     name = "TerraformDemo_State"
-  #   }
-  # }
+    workspaces {
+      name = "TerraformDemo_State"
+    }
+  }
 
   required_providers {
     azurerm = {
