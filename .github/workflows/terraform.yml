@@ -23,9 +23,9 @@ jobs:
 
       - name: Setup Terraform CLI
         uses: hashicorp/setup-terraform@v4
-        with:
-          terraform_version: "1.15.6"
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        # with:
+        #   terraform_version: "1.15.6"
+        #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Create .tfvars File
         run: |
