@@ -14,8 +14,8 @@ jobs:
     name: "Terraform Run"
     runs-on: ubuntu-latest
 
-    env:
-      TF_LOG: DEBUG
+    # env:
+    #    TF_LOG: DEBUG
 
     steps:
       - name: Checkout Code
