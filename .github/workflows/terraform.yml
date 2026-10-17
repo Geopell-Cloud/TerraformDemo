@@ -41,12 +41,12 @@ jobs:
 
       - name: Setup Terraform CLI
         uses: hashicorp/setup-terraform@v4
-
-      - name: Validate Terraform
-        run: terraform validate
  
       - name: Initialize Terraform
         run: terraform init
+
+      - name: Validate Terraform
+        run: terraform validate
 
       - name: Terraform Plan
         run: terraform plan
