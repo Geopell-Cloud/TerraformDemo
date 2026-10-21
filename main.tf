@@ -9,7 +9,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "devrg" {
-  name     = "terraform-devops-rg"
+  name     = "terraform-devops-rg1"
   location = "East US"
 }
 
