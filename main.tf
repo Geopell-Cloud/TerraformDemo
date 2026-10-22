@@ -1,5 +1,6 @@
 provider "azurerm" {
   features {}
+  
   resource_provider_registrations = "none"
 
   client_id       = var.azure_client_id
@@ -7,6 +8,15 @@ provider "azurerm" {
   tenant_id       = var.azure_tenant_id
   subscription_id = var.azure_subscription_id
 }
+
+ backend "azurerm" {
+    resource_group_name  = "rag-demo-rg"
+    storage_account_name = "ragterraformstate"
+    container_name       = "ragterraformstate-container"
+    key                  = "dev-demo.terraform.tfstate"
+  }
+}
+
 
 resource "azurerm_resource_group" "devrg" {
   name     = "terraform-devops-rg"
