@@ -26,12 +26,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "devrg" {
-  name     = "terraform-devops-rg"
+  name     = "terraform-devops-rg2"
   location = "East US"
 }
 
 resource "azurerm_storage_account" "storageterr" {
-  name                          = "teststorageaccount098765"
+  name                          = "teststorageaccount098510"
   resource_group_name           = azurerm_resource_group.devrg.name
   location                      = azurerm_resource_group.devrg.location
   account_tier                  = "Standard"
