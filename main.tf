@@ -30,6 +30,7 @@ resource "azurerm_resource_group" "devrg" {
   location = "East US"
 }
 
+/*
 resource "azurerm_storage_account" "storageterr" {
   name                          = "teststorageaccount098510"
   resource_group_name           = azurerm_resource_group.devrg.name
@@ -42,3 +43,4 @@ resource "azurerm_storage_account" "storageterr" {
     environment = "dev"
   }
 }
+*/
