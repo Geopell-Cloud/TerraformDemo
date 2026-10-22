@@ -1,3 +1,19 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.30"
+    }
+  }
+
+  backend "azurerm" {
+    resource_group_name  = "rag-demo-rg"
+    storage_account_name = "ragterraformstate"
+    container_name       = "ragterraformstate-container"
+    key                  = "dev-demo.terraform.tfstate"
+  }
+}
+
 provider "azurerm" {
   features {}
   
@@ -8,15 +24,6 @@ provider "azurerm" {
   tenant_id       = var.azure_tenant_id
   subscription_id = var.azure_subscription_id
 }
-
- backend "azurerm" {
-    resource_group_name  = "rag-demo-rg"
-    storage_account_name = "ragterraformstate"
-    container_name       = "ragterraformstate-container"
-    key                  = "dev-demo.terraform.tfstate"
-  }
-}
-
 
 resource "azurerm_resource_group" "devrg" {
   name     = "terraform-devops-rg"
