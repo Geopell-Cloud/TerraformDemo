@@ -56,5 +56,5 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Terraform Destroy
-        if: ${{ inputs.run_apply == true }}
+        if: ${{ inputs.run_destroy == true }}
         run: terraform destroy -auto-approve  
