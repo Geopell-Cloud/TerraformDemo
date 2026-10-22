@@ -1,5 +1,22 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 4.30"
+    }
+  }
+
+  backend "azurerm" {
+    resource_group_name  = "rag-demo-rg"
+    storage_account_name = "ragterraformstate"
+    container_name       = "ragterraformstate-container"
+    key                  = "dev-demo.terraform.tfstate"
+  }
+}
+
 provider "azurerm" {
   features {}
+  
   resource_provider_registrations = "none"
 
   client_id       = var.azure_client_id
@@ -9,12 +26,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "devrg" {
-  name     = "terraform-devops-rg1"
+  name     = "terraform-devops-rg2"
   location = "East US"
 }
 
 resource "azurerm_storage_account" "storageterr" {
-  name                          = "teststorageaccount098765"
+  name                          = "teststorageaccount098510"
   resource_group_name           = azurerm_resource_group.devrg.name
   location                      = azurerm_resource_group.devrg.location
   account_tier                  = "Standard"
