@@ -1,4 +1,4 @@
-name: "Terraform Demo"
+name: "Terraform Custom Command"
 
 on:
   workflow_dispatch:
