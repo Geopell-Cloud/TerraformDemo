@@ -29,12 +29,12 @@ resource "azurerm_resource_group" "devrg" {
   name     = "terraform-devops-rg2"
   location = "East US"
 }
-
+/*
 resource "azurerm_resource_group" "devrg1" {
   name     = "terraform-devops-rg1"
   location = "East US"
 }
-
+*/
 /*
 resource "azurerm_storage_account" "storageterr" {
   name                          = "teststorageaccount098510"
