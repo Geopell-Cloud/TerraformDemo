@@ -30,10 +30,12 @@ resource "azurerm_resource_group" "devrg" {
   location = "East US"
 }
 
+/*
 resource "azurerm_resource_group" "devrg1" {
   name     = "terraform-devops-rg1"
   location = "East US"
 }
+*/
 
 /*
 resource "azurerm_storage_account" "storageterr" {
@@ -50,6 +52,7 @@ resource "azurerm_storage_account" "storageterr" {
 }
 */
 
+/*
 resource "azurerm_storage_account" "storage2" {
   name                          = "teststorageaccount098765"
   resource_group_name           = azurerm_resource_group.devrg1.name
@@ -58,3 +61,4 @@ resource "azurerm_storage_account" "storage2" {
   account_replication_type      = "LRS"
   public_network_access_enabled = true
 }
+*/
