@@ -25,9 +25,8 @@ provider "azurerm" {
   subscription_id = var.azure_subscription_id
 }
 
-resource "azurerm_resource_group" "devrg" {
+data "azurerm_resource_group" "devrg" {
   name     = "terraform-devops-rg2"
-  location = "East US"
 }
 
 /*
@@ -40,11 +39,11 @@ resource "azurerm_resource_group" "devrg1" {
 /*
 resource "azurerm_storage_account" "storageterr" {
   name                          = "teststorageaccount098510"
-  resource_group_name           = azurerm_resource_group.devrg.name
+  resource_group_name           = data.azurerm_resource_group.devrg.name
   location                      = azurerm_resource_group.devrg.location
   account_tier                  = "Standard"
   account_replication_type      = "LRS"
-  public_network_access_enabled = true
+  public_network_access_enabled = false
 
   tags = {
     environment = "dev"
